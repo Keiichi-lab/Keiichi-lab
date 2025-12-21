@@ -1,4 +1,4 @@
-# 六平 圭一 / Keiichi Musaka
+# Keiichi
 
 ## About Me
 
