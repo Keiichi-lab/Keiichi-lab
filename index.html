@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keiichi - Cloud Infrastructure Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f7f4;
+            --text: #2c2c2c;
+            --text-light: #6b6b6b;
+            --accent: #8b7355;
+            --border: #e8e6e1;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 300;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 32px;
+        }
+
+        header {
+            margin-bottom: 64px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            letter-spacing: 0.1em;
+            color: var(--text);
+        }
+
+        .intro {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        section {
+            margin-bottom: 56px;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.4;
+        }
+
+        .highlights {
+            display: grid;
+            gap: 20px;
+        }
+
+        .highlight-item {
+            padding-left: 20px;
+            border-left: 2px solid var(--border);
+            transition: border-color 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            border-color: var(--accent);
+        }
+
+        .highlight-title {
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .highlight-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .skills-category h3 {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            background: var(--bg);
+        }
+
+        .aws-services {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 12px;
+            line-height: 1.7;
+        }
+
+        .languages-row {
+            display: flex;
+            gap: 48px;
+        }
+
+        .language-item {
+            font-size: 0.95rem;
+        }
+
+        .language-item strong {
+            font-weight: 500;
+        }
+
+        .language-item span {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .cert-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+        }
+
+        .cert-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            min-width: 48px;
+        }
+
+        .cert-name {
+            color: var(--text);
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 28px 32px;
+            position: relative;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .project-card h3 a:hover {
+            color: var(--accent);
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            letter-spacing: 0.02em;
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        .experience-item h3 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .experience-item ul {
+            list-style: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .experience-item li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 4px;
+        }
+
+        .experience-item li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .education p {
+            font-size: 0.95rem;
+        }
+
+        .education strong {
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            margin-bottom: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 48px 24px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .languages-row {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .cert-item {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Keiichi</h1>
+            <p class="intro">AWSを中心としたクラウドインフラの設計・構築を専門とするエンジニアです。セキュリティ製品（EDR/SIEM）の導入プロジェクトでPMを務めた経験があり、技術力とマネジメント力の両面を持ち合わせています。また、外国語学部出身のバックグラウンドを活かし、海外ベンダーとの技術ミーティングや通訳、英日両言語でのドキュメント作成も得意としています。</p>
+        </header>
+
+        <section>
+            <h2>Highlights</h2>
+            <div class="highlights">
+                <div class="highlight-item">
+                    <div class="highlight-title">AWS SMBコンピテンシー認定</div>
+                    <div class="highlight-desc">日本国内4社目の認定取得に貢献（IAM・セキュリティ設計のドキュメント整備を担当）</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-title">AWS基盤構築</div>
+                    <div class="highlight-desc">認証基盤（Entra ID連携）、サーバレス基盤（CloudFront/Lambda/StepFunctions）の設計・構築</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-title">セキュリティ製品導入</div>
+                    <div class="highlight-desc">EDR製品導入プロジェクトを9件、SIEM（Splunk）バージョンアップを3件、PMとして完遂</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-title">グローバルコミュニケーション</div>
+                    <div class="highlight-desc">海外ベンダーとの技術会議の通訳、英日技術文書の作成</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <h3>Cloud & Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Windows Server</span>
+                        <span class="skill-tag">VMware</span>
+                    </div>
+                    <p class="aws-services">EC2 / Lambda / API Gateway / CloudFront / S3 / RDS / IAM / Organizations / CloudWatch / SSM / CodePipeline / CodeCommit / AWS Backup / SNS / StepFunctions</p>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Security</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">EDR</span>
+                        <span class="skill-tag">Splunk</span>
+                        <span class="skill-tag">IAM設計</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Programming & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Shell</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Languages</h3>
+                    <div class="languages-row">
+                        <div class="language-item">
+                            <strong>日本語</strong> <span>ネイティブ</span>
+                        </div>
+                        <div class="language-item">
+                            <strong>英語</strong> <span>ビジネスレベル（TOEIC 880 / EF SET C1）</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Certifications</h2>
+            <div class="cert-list">
+                <div class="cert-item">
+                    <span class="cert-year">2025</span>
+                    <span class="cert-name">AWS Certified Solutions Architect - Associate</span>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-year">2024</span>
+                    <span class="cert-name">Google Cybersecurity Certificate</span>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-year">2021</span>
+                    <span class="cert-name">AWS Certified Cloud Practitioner</span>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-year">2021</span>
+                    <span class="cert-name">EF Standard English Test C1 (70)</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3><a href="https://github.com/keiichimusaka/AWSRAG" target="_blank" rel="noopener">AWS RAG Agent</a></h3>
+                <p>AWSインフラストラクチャ（EC2, VPCなど）の情報を自然言語で問い合わせできるAIエージェント。マネジメントコンソールを開かずに、ChatOpsで運用効率化を実現。</p>
+                <div class="tech-stack">Python / LangChain / LangGraph / OpenAI / AWS Lambda / GitHub Actions (OIDC)</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <h3>クラウドインフラ構築</h3>
+                    <ul>
+                        <li>AWS基盤の設計・構築（認証基盤、サーバレス、監視/通知、バックアップ管理）</li>
+                        <li>IaC（Infrastructure as Code）によるAWSサービス構築</li>
+                        <li>CI/CD環境構築（CodePipeline）</li>
+                        <li>オンプレミスからAWSへの基幹システム移行</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>セキュリティ製品導入（PM）</h3>
+                    <ul>
+                        <li>自治体・医療機関向けEDR製品導入（9プロジェクト）</li>
+                        <li>Splunk Enterprise バージョンアップ（3プロジェクト）</li>
+                        <li>設計書作成から本番作業・納品まで一貫して担当</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>インフラ構築・更改</h3>
+                    <ul>
+                        <li>Active Directory 更改</li>
+                        <li>ネットワーク機器（Ciscoルータ）更改</li>
+                        <li>VMware / Hyper-V / Azure 環境での構築経験</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>グローバルサポート</h3>
+                    <ul>
+                        <li>海外ベンダーとの技術ミーティング対応</li>
+                        <li>英語 ⇄ 日本語の通訳・翻訳</li>
+                        <li>エンジニアへの作業指示・工数管理</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <p><strong>神奈川大学</strong> 外国語学部 英語英文学科 卒業</p>
+        </section>
+
+        <footer>
+            <p>© Keiichi</p>
+        </footer>
+    </div>
+</body>
+</html>
