@@ -65,9 +65,10 @@ AWSインフラストラクチャ（EC2, VPCなど）の情報を自然言語で
 - AIによる自律的なAWS APIツール選択
 
 ## Tech Blog
+[Qiita](https://qiita.com/musakamama3838)
+[Zenn](https://zenn.dev/m_keiichi)
+[社内ブログ](https://cloud5.jp/author/musaka-k/)
 
-<!-- TODO: ブログURLを追加 -->
-- 準備中
 
 ## Experience Summary
 
